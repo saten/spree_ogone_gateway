@@ -1,15 +1,17 @@
 Fixed Quantity
 ==============
 
-This is an extension for [Spree][1], put together by [DefV][2]
+This is an extension for [Spree][1] 0.3.x, put together by [DefV][2]
 
 This extension makes it possible to accept payments through [Ogone][3]. It requires the active\_merchant\_ogone gem to be installed on your system. Readme and test cases kindly provided by [Gorilla][4]
+
+This extension has been ported to Rails3 by bzt.
 
 Installation
 ------------
 
-* Copy to your project's vendor/extensions dir, and make sure the naming is right (remove the 'spree-' prefix).
-* Reboot (or deploy to) your server.
+* Add gem 'ogone_gateway', :require => 'ogone_gateway', :git => 'git://github.com/bzt/spree_ogone_gateway.git' to your Gemfile
+* Run 'bundle install'
 * Go to the backend of your shop, and go to configuration > paying methods.
 * Create a new paying method, and select 'Billing::Ogone' as the provider
 * On the next screen, alter the valuta if needed, and fill in the Ogone passphrases and account name.

@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   #s.description = 'Add (optional) gem description here'
   s.required_ruby_version = '>= 1.8.7'
 
-  s.author            = 'bzt'
+  s.author            = 'DefV, gorilla, bzt'
   # s.email             = ''
   # s.homepage          = 'http://www.rubyonrails.org'
   # s.rubyforge_project = ''
