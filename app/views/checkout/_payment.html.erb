@@ -8,7 +8,7 @@
 
 </form>
 <div class="form-buttons">
-	<% payment_service_for @order.number, Billing::Ogone.current.account_name,
+	<% payment_service_for @order.number, Billing::Ogone.current.preferred_account_name,
 													:amount => (@order.total * 100).to_i,
 													:currency => Billing::Ogone.current.preferred_currency,
 													:service => :ogone do |service|	%>
