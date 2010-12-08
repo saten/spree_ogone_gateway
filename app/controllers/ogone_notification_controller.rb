@@ -15,13 +15,15 @@ class OgoneNotificationController < ApplicationController
     
     raise OgoneFailed unless notification.complete?
     
-    unless @order.checkout_complete
-      @order.checkout.next!
+	unless @order.state == "complete" or @order.completed?
+      @order.next!
     
-      payment = Payment.new(:amount => notification.gross)
-      payment.payable = @order.reload
-      payment.payment_method = PaymentMethod.find_by_type_and_active_and_environment("Billing::Ogone", true, Rails.env)
-      payment.save!
+		payment = Payment.create(:amount => notification.gross, :order => @order)
+	   payment.payment_method = PaymentMethod.find_by_type_and_active_and_environment("Billing::Ogone", true, Rails.env)
+	   payment.state = 'completed'
+	   payment.save!
+	   @order.next!
+		
     end
     
     session[:order_id] = nil
