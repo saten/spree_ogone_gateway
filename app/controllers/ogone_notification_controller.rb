@@ -22,7 +22,7 @@ class OgoneNotificationController < ApplicationController
 	   payment.payment_method = PaymentMethod.find_by_type_and_active_and_environment("Billing::Ogone", true, Rails.env)
 	   payment.state = 'completed'
 	   payment.save!
-	   @order.next!
+	   #@order.next!
 		
     end
     
