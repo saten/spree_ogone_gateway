@@ -8,7 +8,7 @@ class Billing::Ogone < BillingIntegration
   def self.current
     return @current_billing if defined? @current_billing
     
-    @current_billing = first(:conditions => {:type => self.to_s, :environment => RAILS_ENV, :active => true})
+    @current_billing = first(:conditions => {:type => self.to_s, :environment => Rails.env, :active => true})
     @current_billing.initialize_integration
     @current_billing
   end
